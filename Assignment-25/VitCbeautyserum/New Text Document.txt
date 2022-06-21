@@ -1,0 +1,20 @@
+class KitchenShelf{
+
+public static void main(String[] args){
+
+ String name="Wolphin";
+ String color="black 2";
+ int price=719;
+ int noOfWheels=3;
+ String handleHeight="30 inches";
+ String wheelMaterial="Volume control";
+
+ System.out.println("Name of Scooter is " +name);
+ System.out.println("Color of Scooter is " +color);
+ System.out.println("Price of Scooter is " +price);
+ System.out.println("Control Type Scooter is " +controlType);
+ System.out.println("Wheel material of Scooter  " +wheelMaterial);
+
+}
+
+}

@@ -1,0 +1,19 @@
+class Watch{
+
+public static void main(String[] args){
+
+ String name="Realme Wireless 2 Neo bluetooth";
+ String color="black";
+ int price=1299;
+ String connectorType="Wireless";
+ String controlType="Volume control";
+
+ System.out.println("Name of Watch is " +name);
+ System.out.println("Color of Watch is " +color);
+ System.out.println("Price of Watch is " +price);
+ System.out.println("Control Type Watch is " +controlType);
+ System.out.println("Connector Type of Watch is " +connectorType);
+
+}
+
+}
