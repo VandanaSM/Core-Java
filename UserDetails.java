@@ -1,20 +1,15 @@
 class UserDetails{
 
- static String name= "Baba";
- static long contactNo= 8943242746L;
- static byte age =  89;
- static boolean isAlive = true;
- static char character= 'J' + 'O';
- static char section= 'J' ;
+ static String names[]= {"Baba","Babi","Chacha","Chachi"};
+ static int Age[] ={46,42,50,48};
 
  public static void main(String[] args){
 
- System.out.println("User name is " +name );
- System.out.println("Contact No of user is " +contactNo );
- System.out.println("Age of user is " +age  );
- System.out.println("User is Alive:" +isAlive);
- System.out.println(character);
- System.out.println(section);
-}
-
+ System.out.println("Length of name is " +names.length );
+ System.out.println("First User name is " +names[0]  + " Age of the user is :" + Age[0]);
+ System.out.println("Second User name is " +names[1]  + " Age of the user is :" + Age[1]);
+ System.out.println("Third User name is " +names[2]  + " Age of the user is :" + Age[2]);
+ System.out.println("Fourth User name is " +names[3]  + " Age of the user is :" + Age[3]);
+ }
+ 
 }
