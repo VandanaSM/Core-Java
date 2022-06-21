@@ -1,5 +1,0 @@
-class Cap{
-
-public static void main(String[] args){
-
- 
