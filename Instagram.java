@@ -1,4 +1,0 @@
-class Instagram extends SocialMedia{
-
-
-}

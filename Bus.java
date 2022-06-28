@@ -1,4 +1,0 @@
-class Bus extends ModeOfTranport{
-
-
-}

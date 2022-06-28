@@ -1,4 +1,0 @@
-class Tsm extends ChipManufacturingCompany{
-
-
-}

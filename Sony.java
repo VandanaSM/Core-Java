@@ -1,4 +1,0 @@
-class Sony extends MobileCompany{
-
-
-}
