@@ -1,11 +1,13 @@
 class HospitalCrud{
   ///has many patients so made as array we know size but not type of data to be stored
-  PatientDTO[] dtos=new PatientDTO[6];  ///if enter size >1 then nullpointerexception as patientdto is nonprimitive 
+  ///has-a relation bet hospital and patient-one to many relationship
+  PatientDTO[] dtos;  ///if enter size >6 then nullpointerexception as patientdto is nonprimitive 
                                         ///and def value for it is null 
   ///instance variable
   int index; 
   
-  public HospitalCrud(){
+  public HospitalCrud(int size){             ///pass value which provided to the size in next line as we want to enter it at run time
+	  dtos=new PatientDTO[size];    ///constr called as soon as object is called so init done here so size we need to provide first so done in constr
 	  System.out.println("HospitalCrud object is created");
   }
   
@@ -13,7 +15,7 @@ class HospitalCrud{
   public boolean createPatient(PatientDTO dto){
 	  System.out.println("inside create patient method");
 	   boolean isAdded=false;
-	  if(dto!= null && dto.getName() !=null){
+	  if(dto!= null && dto.getName() !=null){      ///&& checks both cond true then only execute if
 		  this.dtos[index++]=dto;
 		  isAdded=true; 
 		  System.out.println("Patient details added successfully");

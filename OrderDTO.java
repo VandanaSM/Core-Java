@@ -1,13 +1,14 @@
-class PatientDTO{
+class OrderDTO{
 
   private int id;
   private String name;
   private String address;
-  private Gender gender;   ///Gender is enum nonprimitive datatype with var gender create another cls to store const values
   private long contactNo;
+  private String orderNO;
+  private double billAmount;
   
   ///constructor
-  public PatientDTO(){
+  public OrderDTO(){
     System.out.println("PatientDTO object is created");
   }
   
@@ -35,14 +36,6 @@ class PatientDTO{
     this.address=address;
   }
   
-  public Gender getGender(){
-    return gender;
-  }
-
-  public void setGender(Gender gender){
-    this.gender=gender;
-  }
-  
   public long getContactNo(){
    return contactNo;
   }
@@ -50,5 +43,20 @@ class PatientDTO{
   public void setContactNo(long contactNo){
     this.contactNo=contactNo;
   }
+  
+  public String getOrderNo(){
+	  return orderNO;
+  }
 
+  public void setOrderNo(String orderNO){
+	  this.orderNO=orderNO;
+  }
+
+  public double getBillAmount(){
+	  return billAmount;
+  }
+  
+  public void setBillAmount(double billAmount){
+	  this.billAmount=billAmount;
+  }
 }
