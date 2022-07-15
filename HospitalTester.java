@@ -22,21 +22,55 @@ class HospitalTester{
 	  System.out.println("Enter patient id");
 	  int id=sc.nextInt();
 	  System.out.println("Enter patient contact number");
-	  long contactNo=sc.nextLong();
+	  Long contactNo=sc.nextLong();
 	  System.out.println("Enter Patient Gender");
-	  Gender gender=sc.nextGender();
-	  
+	  String gender=sc.next();   ///gender enter in console is string type so given as string now we have to convert it from 
+	                               ///string to enum type(Gender) we use valueOf
+	  dto.setGender(Gender.valueOf(gender));  ///valueOf class contains valueOf method so called to convert from String to enum Gnder type
+
 	  
 	 dto.setId(id);
 	 dto.setName(name);
 	 dto.setAddress(address);
-	 dto.setGender(gender);  ///enter value using enum class name i.e., Gender.male
 	 dto.setContactNo(contactNo);
 	 
 	 hos.createPatient(dto);
 	 }
-	 
-	 hos.getPatientDetails();   ///only one get details method called as it stores all the object details
+	 	 hos.getPatientDetails();   ///only one get details method called as it stores all the object details
+		 //invoking updatePatientAddressById() 
+		 System.out.println("Enter the existing id for which address has to be updated");
+		 int existingId=sc.nextInt();
+		 sc.nextLine();
+		 System.out.println("Enter the address to be updated");
+		 String updatedAddress=sc.next();
+		 hos.updatePatientAddressById(existingId,updatedAddress);
+		 
+		  hos.getPatientDetails();
+		 
+	 ///invoking updatePatientContactNoByName()
+		 System.out.println("Enter the existing name for which contact no has be updated");
+		 String existingName=sc.next();
+		 System.out.println("Enter the contact no to be updated");
+		 long updatedContactNo=sc.nextLong();
+		 hos.updatePatientContactNoByName(existingName,updatedContactNo); 
+         
+		 hos.getPatientDetails();   ///after update need to get details again so used      
+        
+
+     ///invoking deletePatientDetailsByName()		
+		 System.out.println("Enter the name to be deleted");
+		 String availableName=sc.next();
+		 hos.deletePatientDetailsByName(availableName);
+		 
+		 hos.getPatientDetails(); 
+		 
+	 ///invoking deletePatientDetailsById()		
+		 System.out.println("Enter the id to be deleted");
+		 int availableId=sc.nextInt();
+		 hos.deletePatientDetailsById(availableId);
+		 
+		 hos.getPatientDetails(); 
+		
   }
 
 }

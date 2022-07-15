@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class AirportCrud{
 
   TerminalDto dtos[];
@@ -29,5 +31,72 @@ class AirportCrud{
 	  }
   }
      
+	 
+     public boolean updateNoOfBookingCountersById(int id,int noOfBookingCounter){    
+	  System.out.println("start of updateNoOfBookingCountersById()");
+	  boolean updatedNoOfBookingCounter=false;
+	  for(int i=0;i<dtos.length;i++){      
+		  if(dtos[i].getId()==id){        
+			  updatedNoOfBookingCounter=true;
+			  dtos[i].setNoOfBookingCounters(noOfBookingCounter);    
+			  System.out.println("noOfBookingCounter updated successfully");
+		  }
+		  else{
+			  System.out.println("Couldnot update noOfBookingCounter,please provide proper id");
+		  }
+	  }
+	  return updatedNoOfBookingCounter;
+  }
+  
+   public boolean updateNoOfCheckInCountersById(int id,int noOfCheckInCounters){
+	  System.out.println("start of updateBookPublisherByName()");
+	  boolean updatedNoOfCheckInCounters=false;
+	  for(int i=0;i<dtos.length;i++){
+		  if(dtos[i].getId()==(id)){
+			  updatedNoOfCheckInCounters=true;
+			  dtos[i].setNoOfCheckInCounters(noOfCheckInCounters);
+			  System.out.println("NoOfCheckInCounters is updated successfully");
+		  }
+		  else{
+			  System.out.println("Couldnot update NoOfCheckInCounters , please enter proper id");
+		  }
+	  }
+	  return updatedNoOfCheckInCounters;
+  } 
+  
+     public boolean deleteTerminalById(int id){
+	  System.out.println("start of deleteterminalById()");
+	  boolean deletedId=false;
+	  int i,j;
+	  for(i=0,j=0;j<dtos.length;j++){
+		  if(dtos[j].getId()!=id){
+			  dtos[i++]=dtos[j];
+			  deletedId=true;
+		  }
+		  else{
+			  System.out.println("terminal id not found");
+		  }
+	  }
+	  dtos=Arrays.copyOf(dtos,i);
+	  return deletedId;
+    }
+  
+  
+   public boolean deleteTerminalByNoOfBookingCounters(int noOfBookingCounters){
+	  System.out.println("inside deleteTerminalByNoOfBookingCounters()");
+	  boolean terminalDeleted=false;
+	  int i,j;
+	  for(i=0,j=0;j<dtos.length;j++){
+		  if(dtos[j].getNoOfBookingCounters()!=noOfBookingCounters){
+			  dtos[i++]=dtos[j];
+			  terminalDeleted=true;
+		  }
+		  else{
+			  System.out.println("Terminal orderNo not found");
+		  }
+	  }
+	  dtos=Arrays.copyOf(dtos,i);
+	  return terminalDeleted;
+  }
   
 }

@@ -32,6 +32,40 @@ class AirportCrudTester{
 	   air.createTerminalDetails(dto);
 	  }
 	  air.getPassengerDetails();
+	  
+	  	//invoking updateNoOfBookingCountersById() 
+		 System.out.println("Enter the existing id ");
+		 int existingId=sc.nextInt();
+		// sc.nextLine();
+		 System.out.println("Enter the NoOfBookingCounters to be updated");
+		 int updatedNoOfBookingCounters=sc.nextInt();
+		 air.updateNoOfBookingCountersById(existingId,updatedNoOfBookingCounters);
+		 
+		  air.getPassengerDetails();
+		 
+	 ///invoking updateNoOfCheckInCountersById()
+		 System.out.println("Enter the existing id ");
+		 int existingId1=sc.nextInt();
+		 sc.nextLine();
+		 System.out.println("Enter the NoOfCheckInCounters to be updated");
+		 int updatedNoOfCheckInCounters=sc.nextInt();
+		 //sc.nextLine();
+		 air.updateNoOfCheckInCountersById(existingId1,updatedNoOfCheckInCounters); 
+         
+		 air.getPassengerDetails(); 
+		 		 
+		///invoking deleteTerminalById()		
+		 System.out.println("Enter the id to be deleted");
+		 int availableId=sc.nextInt();
+		 air.deleteTerminalById(availableId);
+		 
+		 air.getPassengerDetails(); 
+		 
+		///invoking deleteTerminalByNoOfBookingCounters()		
+		 System.out.println("Enter the noOfBookingCounters to be deleted");
+		 int availableNoOfBookingCounters=sc.nextInt();
+		 air.deleteTerminalByNoOfBookingCounters(availableNoOfBookingCounters);
+		 
+		 air.getPassengerDetails(); 
   }
-
-}
+  }

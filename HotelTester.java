@@ -32,7 +32,43 @@ class HotelTester{
 		hotel.createFoodItem(dto);
 	  }
 	    hotel.getFoodItem();
+		
+		//invoking updatePriceById() 
+		 System.out.println("Enter the existing id ");
+		 int existingId=sc.nextInt();
+		 sc.nextLine();
+		 System.out.println("Enter the price to be updated");
+		 double updatedPrice=sc.nextDouble();
+		 hotel.updatePriceById(existingId,updatedPrice);
+		 
+		 hotel.getFoodItem();
+		 
+	 ///invoking updateIsAvailableByName()
+		 System.out.println("Enter the existing name ");
+		 String existingName=sc.next();
+		 //sc.nextLine();
+		 System.out.println("Enter if food item avalable to be updated");
+		 boolean updatedIsAvailable=sc.nextBoolean();
+		// sc.nextLine();
+		 hotel.updateIsAvailableByName(existingName,updatedIsAvailable); 
+         
+		 hotel.getFoodItem(); 
+		 
+	  ///invoking deleteFoodItemDetailsById()		
+		 System.out.println("Enter the id to be deleted");
+		 int availableId=sc.nextInt();
+		 hotel.deleteFoodItemDetailsById(availableId);
+		 
+		 hotel.getFoodItem(); 
+		 
+	  ///invoking deleteFoodItemDetailsByName()		
+		 System.out.println("Enter the name to be deleted");
+		 String availableName=sc.next();
+		 hotel.deleteFoodItemDetailsByName(availableName);
+		 
+		 hotel.getFoodItem(); 
+  }
  }
 
-  }
+  
 

@@ -4,7 +4,7 @@ class PatientDTO{
   private String name;
   private String address;
   private Gender gender;   ///Gender is enum nonprimitive datatype with var gender create another cls to store const values
-  private long contactNo;
+  private Long contactNo;
   
   ///constructor
   public PatientDTO(){
@@ -43,11 +43,11 @@ class PatientDTO{
     this.gender=gender;
   }
   
-  public long getContactNo(){
+  public Long getContactNo(){
    return contactNo;
   }
   
-  public void setContactNo(long contactNo){
+  public void setContactNo(Long contactNo){
     this.contactNo=contactNo;
   }
 

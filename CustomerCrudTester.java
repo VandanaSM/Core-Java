@@ -34,8 +34,40 @@ class CustomerCrudTester{
 			
 		cus.createCustomerDetails(dto);
 	  }
-	    cus.getCustomerDetails();
+	 	 cus.getCustomerDetails();   
+		 //invoking updateCustomerAddressById() 
+		 System.out.println("Enter the existing id for which address has to be updated");
+		 int existingId=sc.nextInt();
+		 sc.nextLine();
+		 System.out.println("Enter the address to be updated");
+		 String updatedAddress=sc.next();
+		 cus.updateCustomerAddressById(existingId,updatedAddress);
+		 
+		  cus.getCustomerDetails();
+		 
+	 ///invoking updateCustomerContactNoByName()
+		 System.out.println("Enter the existing name for which contact no has be updated");
+		 String existingName=sc.next();
+		 System.out.println("Enter the contact no to be updated");
+		 long updatedContactNo=sc.nextLong();
+		 cus.updateCustomerContactNoByName(existingName,updatedContactNo); 
+         
+		 cus.getCustomerDetails();   
+		 
+		 ///invoking deleteCustomerById()		
+		 System.out.println("Enter the id to be deleted");
+		 int availableId=sc.nextInt();
+		 cus.deleteCustomerById(availableId);
+		 
+		 cus.getCustomerDetails(); 
+		 
+		///invoking deleteCustomerByOrderNo()		
+		 System.out.println("Enter the orderNO to be deleted");
+		 String availableOrderNo=sc.next();
+		 cus.deleteCustomerByOrderNo(availableOrderNo);
+		 
+		 cus.getCustomerDetails(); 
+  }
  }
 
 
-}

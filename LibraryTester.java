@@ -33,6 +33,44 @@ class LibraryTester{
 	   lib.createBook(dto);
 	}
        lib.getBookDetails();
+	   
+	    
+		 //invoking updateBookNameById() 
+		 System.out.println("Enter the existing id ");
+		 int existingId=sc.nextInt();
+		 sc.nextLine();
+		 System.out.println("Enter the book name to be updated");
+		 String updatedName=sc.next();
+		 lib.updateBookNameById(existingId,updatedName);
+		 
+		 lib.getBookDetails();
+		 
+	 ///invoking updateBookPublisherByName()
+		 System.out.println("Enter the existing name ");
+		 String existingName=sc.next();
+		 //sc.nextLine();
+		 System.out.println("Enter the book publisher to be updated");
+		 String updatedBookPublisher=sc.next();
+		// sc.nextLine();
+		 lib.updateBookPublisherByName(existingName,updatedBookPublisher); 
+         
+		 lib.getBookDetails();
+
+        //invoking deleteBookById()
+         System.out.println("Enter the id to be deleted");
+         int existingId1=sc.nextInt();
+         lib.deleteBookDetailsById(existingId1);
+
+         lib.getBookDetails();	
+
+     ///invoking deleteBookByName()		
+		 System.out.println("Enter the name to be deleted");
+		 String availableName=sc.next();
+		 lib.deleteBookDetailsByName(availableName);
+		 
+		 lib.getBookDetails(); 
+
+    		 
   }
 
 }

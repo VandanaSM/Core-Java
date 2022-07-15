@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 class CustomerCrud{
 
   OrderDTO dtos[];
@@ -30,6 +32,73 @@ class CustomerCrud{
       }
   }
 
+  public boolean updateCustomerAddressById(int id,String address){    
+	  System.out.println("start of updateCustomerAddressById()");
+	  boolean updatedAddress=false;
+	  for(int i=0;i<dtos.length;i++){    
+		  if(dtos[i].getId()==id){        
+			  updatedAddress=true;
+			  dtos[i].setAddress(address);     
+			  System.out.println("Customer Address updated successfully");
+		  }
+		  else{
+			  System.out.println("Couldnot update Customer address,please provide proper id");
+		  }
+	  }
+	  return updatedAddress;
+  }
+  
+   public boolean updateCustomerContactNoByName(String name,long contactNo){
+	  System.out.println("start of updateCustomerContactNoByName()");
+	  boolean updatedContactNo=false;
+	  for(int i=0;i<dtos.length;i++){
+		  if(dtos[i].getName().equals(name)){
+			  updatedContactNo=true;
+			  dtos[i].setContactNo(contactNo);
+			  System.out.println("Customer contact no is updated successfully");
+			 
+		  }
+		  else{
+			  System.out.println("Couldnot update Customer contact no , please enter proper Customer name");
+		  }
+	  }
+	  return updatedContactNo;
+  } 
+   
+   public boolean deleteCustomerById(int id){
+	  System.out.println("start of deleteCustomerById()");
+	  boolean deletedId=false;
+	  int i,j;
+	  for(i=0,j=0;j<dtos.length;j++){
+		  if(dtos[j].getId()!=id){
+			  dtos[i++]=dtos[j];
+			  deletedId=true;
+		  }
+		  else{
+			  System.out.println("Customer id not found");
+		  }
+	  }
+	  dtos=Arrays.copyOf(dtos,i);
+	  return deletedId;
+   }
+  
+  
+   public boolean deleteCustomerByOrderNo(String orderNo){
+	  System.out.println("inside deleteCustomerByOrderNo()");
+	  boolean orderNoDeleted=false;
+	  int i,j;
+	  for(i=0,j=0;j<dtos.length;j++){
+		  if(!dtos[j].getOrderNo().equals(orderNo)){
+			  dtos[i++]=dtos[j];
+			  orderNoDeleted=true;
+		  }
+		  else{
+			  System.out.println("Customer orderNo not found");
+		  }
+	  }
+	  dtos=Arrays.copyOf(dtos,i);
+	  return orderNoDeleted;
+  }
 
 
 }
