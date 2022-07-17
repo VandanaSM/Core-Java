@@ -5,6 +5,7 @@ class FoodItemDto{
    private double price;
    private boolean isAvailable;
    private String itemdetails;
+   private String type;
 
   public FoodItemDto(){
     System.out.println("FoodItemDto object is created");
@@ -48,5 +49,18 @@ class FoodItemDto{
   
   public void setItemdetails(String itemdetails){
     this.itemdetails=itemdetails;
+  }
+  
+  public String getType(){
+	  return type;
+  }
+  
+  public void setType(String type){
+	  this.type=type;
+  }
+  
+  @Override
+  public String toString(){
+	  return "(FoodItemDto :  Id="+this.id+",Name="+this.name+",Price="+this.price+",IsAvailable="+this.isAvailable+",ItemDeatils="+this.itemdetails+", Type="+this.type+")";
   }
 }

@@ -4,8 +4,9 @@ class OrderDTO{
   private String name;
   private String address;
   private long contactNo;
-  private String orderNO;
+  private String type;
   private double billAmount;
+  private int quantity;
   
   ///constructor
   public OrderDTO(){
@@ -44,12 +45,12 @@ class OrderDTO{
     this.contactNo=contactNo;
   }
   
-  public String getOrderNo(){
-	  return orderNO;
+  public String getType(){
+	  return type;
   }
 
-  public void setOrderNo(String orderNO){
-	  this.orderNO=orderNO;
+  public void setType(String type){
+	  this.type=type;
   }
 
   public double getBillAmount(){
@@ -58,5 +59,18 @@ class OrderDTO{
   
   public void setBillAmount(double billAmount){
 	  this.billAmount=billAmount;
+  }
+  
+  public int getQuantity(){
+	  return quantity;
+  }
+
+  public void setQuantity(int quantity){
+	  this.quantity=quantity;
+  }
+  
+  @Override
+  public String toString(){
+	  return "(OrderDTO : Id="+this.id+",Address="+this.address+",ContactNo="+this.contactNo+",Type="+this.type+",BillAmount="+this.billAmount+",Quantity="+this.quantity+")";
   }
 }

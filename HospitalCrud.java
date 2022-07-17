@@ -31,8 +31,7 @@ class HospitalCrud{
   public void getPatientDetails(){
 	  System.out.println("inside getPatientDetails()");
 	  for(int i=0;i<dtos.length;i++){
-		  System.out.println(dtos[i].getId() + " " + dtos[i].getName() + " " + dtos[i].getAddress() + " " + dtos[i].getContactNo() +
-		                   " " + dtos[i].getGender());
+		  System.out.println(dtos[i]);
 		                      
 	  }
   }
@@ -51,7 +50,7 @@ class HospitalCrud{
 		  }
 	  }
 	  return updatedAddress;
-  }
+  }  
   
    public boolean updatePatientContactNoByName(String name,long contactNo){
 	  System.out.println("start of updatePatientContactNoByName()");
@@ -94,18 +93,65 @@ class HospitalCrud{
    public boolean deletePatientDetailsById(int id){
 	   System.out.println("start of deletePatientDetailsById()");
 	   boolean patientDeleted1=false;
-	   int i,j;
+	   int i,j;         ///decl outside for loop to reduce index value after deleting one object and we cannot access i outside for loop
 	   for(i=0,j=0;j<dtos.length;j++){
 		   if(dtos[j].getId()!=id){
-			   dtos[i++]=dtos[j];
+			   //dtos[0]=dtos[0]
+			   dtos[i++]=dtos[j];     /// j holds previous data i holds new data after deletion
 			   patientDeleted1=true;
 		   }
 		   else{
 			   System.out.println("Patient id not found");
 		   }
 	   }
-	   dtos=Arrays.copyOf(dtos,i);
+	    dtos=Arrays.copyOf(dtos,i);   ///(dtos,i)dtos-previous array i-new data after deletion values copy to new dtos var
 	    return patientDeleted1;
-   }   
+   }  
+
+  public String getPatientNameById(int id){
+	System.out.println("start of getPatientNameById()");
+	  String name=null;
+	for(int i=0;i<dtos.length;i++){
+		if(dtos[i].getId()!=id){
+			System.out.println(dtos[i].getName());
+		}
+		else{
+			System.out.println("Enter valid id to get Patient Name ");
+		}
+	}  
+   return name;	
+  }  
+
+  
+  public long getPatientContactNoByName(String name){
+	  System.out.println("Start of getPatientContactNoByName()");
+	  long contactNo=0;;
+	    for(int i=0;i<dtos.length;i++){
+			if(dtos[i].getName().equals (name)){
+				System.out.println(dtos[i].getContactNo());
+			}
+			else{
+				System.out.println("Enter proper name to get patient contact no ");
+			}
+		}
+   return contactNo;
+  }  
+  
+  public boolean deletePatientByGender(Gender gender){
+	  System.out.println("start of deletePatientByGender()");
+	   boolean deletedPatient=false;
+	   int i,j;
+	   for(i=0,j=0;j<dtos.length;j++){
+          if(!dtos[j].getGender() .equals (gender)){	    ///can use == and equals() for enum type	  
+			  dtos[i++]=dtos[j];
+			   deletedPatient=true;
+		  }
+		  else{
+			  System.out.println("Enter the valid gender to delete patient");
+		  }
+	   }
+	   dtos=Arrays.copyOf(dtos,i);
+	  return deletedPatient;
+  }
   
 }

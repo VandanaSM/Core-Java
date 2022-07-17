@@ -27,8 +27,7 @@ class CustomerCrud{
   public void getCustomerDetails(){
 	  System.out.println("start of getCustomerDetails()");
 	  for(int i=0;i<dtos.length;i++){
-	  System.out.println(dtos[i].getId() + " " + dtos[i].getName() + " " + dtos[i].getAddress() + " " + dtos[i].getContactNo() +
-	                     " " + dtos[i].getOrderNo() + " " + dtos[i].getBillAmount());
+	  System.out.println(dtos[i]);
       }
   }
 
@@ -83,22 +82,86 @@ class CustomerCrud{
    }
   
   
-   public boolean deleteCustomerByOrderNo(String orderNo){
+   public boolean deleteCustomerByName(String name){
 	  System.out.println("inside deleteCustomerByOrderNo()");
-	  boolean orderNoDeleted=false;
+	  boolean customerDeleted=false;
 	  int i,j;
 	  for(i=0,j=0;j<dtos.length;j++){
-		  if(!dtos[j].getOrderNo().equals(orderNo)){
+		  if(!dtos[j].getName().equals(name)){
 			  dtos[i++]=dtos[j];
-			  orderNoDeleted=true;
+			  customerDeleted=true;
 		  }
 		  else{
-			  System.out.println("Customer orderNo not found");
+			  System.out.println("Customer not found");
 		  }
 	  }
 	  dtos=Arrays.copyOf(dtos,i);
-	  return orderNoDeleted;
+	  return customerDeleted;
   }
 
+  public String getOrderNameById(int id){
+	  System.out.println("Start of getOrderNameById()");
+	  String orderName=null;
+	  for(int i=0;i<dtos.length;i++){
+		  if(dtos[i].getId()==id){
+			 orderName= dtos[i].getName();
+			 System.out.println(orderName);
+		  }
+		  else{
+			  System.out.println("couldnot get names of customers ,please enter proper id");
+		  }
+	  }
+	  return orderName;
+  }
 
+  public String getOrderTypeByName(String name){
+	  System.out.println("Start of getOrderNameByName()");
+	  String orderType=null;
+	  for(int i=0;i<dtos.length;i++){
+		  if(dtos[i].getName().equals(name)){
+			 orderType= dtos[i].getType();
+			 System.out.println(orderType);
+		  }
+		  else{
+			  System.out.println("couldnot get names of customers ,please enter proper id");
+		  }
+	  }
+	  return orderType;  
+  }
+  
+  public int[] getAllQuantities(){
+	  System.out.println("Start of getAllQuantities()");
+	  int i,j;
+	  for(i=0,j=0;i<dtos.length;i++){
+		System.out.println(dtos[i].getQuantity());
+		     j++;
+	  }
+	  	  int[] allQuantities=new int[j];
+	  for(int y=0,z=0;y<dtos.length;y++){
+		  allQuantities[z++]=dtos[y].getQuantity();
+		//  System.out.println(allQuantities[z]);
+
+	  }
+
+	  return allQuantities; 
+  }
+  
+    public String[] getAllOrderName(){
+	  System.out.println("Start of getAllOrderName()");
+	  int i,j;
+	  for(i=0,j=0;i<dtos.length;i++){
+		System.out.println(dtos[i].getQuantities());
+		     j++;
+	  }
+	  	  String[] getOrderNames=new String[j];
+	  for(int y=0,z=0;y<dtos.length;y++){
+		  getOrderNames[z++]=dtos[y].getName();
+		  //System.out.println(dtos[z].getName());
+
+	  }
+
+	  return getOrderNames; 
+  }
+
+  
 }

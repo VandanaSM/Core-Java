@@ -31,41 +31,46 @@ class AirportCrudTester{
 	  
 	   air.createTerminalDetails(dto);
 	  }
-	  air.getPassengerDetails();
 	  
-	  	//invoking updateNoOfBookingCountersById() 
-		 System.out.println("Enter the existing id ");
-		 int existingId=sc.nextInt();
-		// sc.nextLine();
-		 System.out.println("Enter the NoOfBookingCounters to be updated");
-		 int updatedNoOfBookingCounters=sc.nextInt();
-		 air.updateNoOfBookingCountersById(existingId,updatedNoOfBookingCounters);
-		 
-		  air.getPassengerDetails();
-		 
-	 ///invoking updateNoOfCheckInCountersById()
-		 System.out.println("Enter the existing id ");
-		 int existingId1=sc.nextInt();
-		 sc.nextLine();
-		 System.out.println("Enter the NoOfCheckInCounters to be updated");
-		 int updatedNoOfCheckInCounters=sc.nextInt();
-		 //sc.nextLine();
-		 air.updateNoOfCheckInCountersById(existingId1,updatedNoOfCheckInCounters); 
-         
-		 air.getPassengerDetails(); 
-		 		 
-		///invoking deleteTerminalById()		
-		 System.out.println("Enter the id to be deleted");
-		 int availableId=sc.nextInt();
-		 air.deleteTerminalById(availableId);
-		 
-		 air.getPassengerDetails(); 
-		 
-		///invoking deleteTerminalByNoOfBookingCounters()		
-		 System.out.println("Enter the noOfBookingCounters to be deleted");
-		 int availableNoOfBookingCounters=sc.nextInt();
-		 air.deleteTerminalByNoOfBookingCounters(availableNoOfBookingCounters);
-		 
-		 air.getPassengerDetails(); 
-  }
-  }
+	  	 String option=null;
+	  do{
+		System.out.println("Enter 1 to get Passenger Details");
+        System.out.println("Enter 2 to update No Of Booking Counters By Id");
+        System.out.println("Enter 3 to update No Of CheckIn Counters By Id");
+        System.out.println("Enter 4 to delete delete Terminal By Id");
+        System.out.println("Enter 5 to delete Terminal By No Of Booking Counters");
+        System.out.println("Enter the choice to proceed");
+		
+		int choice=sc.nextInt();
+		
+	 switch(choice){
+		  case 1 : air.getPassengerDetails();
+	                break;
+		  case 2 : System.out.println("Enter the existing id ");
+					 int existingId=sc.nextInt();
+					// sc.nextLine();
+					 System.out.println("Enter the NoOfBookingCounters to be updated");
+					 int updatedNoOfBookingCounters=sc.nextInt();
+					 air.updateNoOfBookingCountersById(existingId,updatedNoOfBookingCounters);	
+					break;
+		  case 3 : System.out.println("Enter the existing id ");
+					 int existingId1=sc.nextInt();
+					 System.out.println("Enter the NoOfCheckInCounters to be updated");
+					 int updatedNoOfCheckInCounters=sc.nextInt();
+					 air.updateNoOfCheckInCountersById(existingId1,updatedNoOfCheckInCounters); 
+					  break;
+		  case 4 : System.out.println("Enter the id to be deleted");
+					 int availableId=sc.nextInt();
+					 air.deleteTerminalById(availableId);		  
+		              break;
+		  case 5 : System.out.println("Enter the noOfBookingCounters to be deleted");
+					 int availableNoOfBookingCounters=sc.nextInt();
+					 air.deleteTerminalByNoOfBookingCounters(availableNoOfBookingCounters);
+	  }
+	  	 System.out.println("Do you want to continue further Yes/No");
+        option =sc.next();
+	  }
+  
+	while(option.equalsIgnoreCase("Yes"));
+	 }
+ }

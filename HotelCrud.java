@@ -26,9 +26,9 @@ class HotelCrud{
 
     public void getFoodItem(){
 	  System.out.println("Start of getFoodItem()");
+	  
 	  for(int i=0;i<dtos.length;i++){
-		  System.out.println(dtos[i].getId() + " " + dtos[i].getName() + " "  
-		              + " " + dtos[i].getPrice() + " " + dtos[i].getIsAvailable()+ " " + dtos[i].getItemdetails()) ; 
+		  System.out.println(dtos[i]) ; 
 	  }
     }
 	
@@ -91,14 +91,78 @@ class HotelCrud{
 			   FoodItemDeleted1=true;
 		   }
 		   else{
-			   System.out.println("FoodItem name not found");
+			   System.out.println("Food Item name not found");
 		   }
 	   }
 	   dtos=Arrays.copyOf(dtos,i);
 	    return FoodItemDeleted1;
    } 
   
-  
+   
+     public boolean updateFoodPriceByName(String name,double price){
+		 System.out.println("Start of updateFoodPriceByName");
+		 boolean updatedPrice=false;
+		 for(int i=0;i<dtos.length;i++){
+			 if(dtos[i].getName().equals (name)){
+				 dtos[i].setPrice(price);
+				 updatedPrice=true;
+				 System.out.println("updated price successfully");
+			 }
+			 else{
+				 System.out.println("couldnot update price ,please enter proper id");
+			 }
+		 }
+		 return updatedPrice;
+	 }
+	 
+	 public String[] getAllFoodNames(){
+		 System.out.println("Start of getAllFoodNames()");
+		 int i,j;
+		 for(i=0,j=0;i<dtos.length;i++){
+			System.out.println(dtos[i].getName());
+            j++;
+		 }
+	     String[] allFoodItemNames=new String[j];
+        for(int y=0,z=0;y<dtos.length;y++){
+			 allFoodItemNames[z++] = dtos[y].getName(); 
+		  } 
+		 return allFoodItemNames;
+	 }
+	 
+	 public boolean deleteFoodTypeById(int id){
+		 System.out.println("Start of deleteFoodTypeById");
+		 boolean deleteFoodType=false;
+		 int i,j;
+		 for(i=0,j=0;j<dtos.length;j++){
+			 if(dtos[i].getId()!= id){
+				 dtos[i++]=dtos[j];
+				 deleteFoodType=true;
+			 }
+			 else{
+				 System.out.println("Food Item not found,enter proper id");
+			 }
+		 }
+		 dtos=Arrays.copyOf(dtos,i);
+		 return deleteFoodType;
+	 }
+	 
+	 public boolean deleteFoodItemByType(String type){
+		 System.out.println("Start of deleteFoodItemByType()");
+		  boolean deleteFoodType=false;
+		 int i,j;
+		 for(i=0,j=0;j<dtos.length;j++){
+			 if(!dtos[j].getType() .equals (type)){
+				 dtos[i++]=dtos[j];
+				 deleteFoodType=true;
+				 System.out.println("type de;eted successfully");
+			 }
+			 else{
+				 System.out.println("Food Item not found,enter proper id");
+			 }
+		 }
+		 dtos=Arrays.copyOf(dtos,i);
+		 return deleteFoodType;
+	 }
      
 
 
